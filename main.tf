@@ -86,3 +86,12 @@ resource "cloudflare_ruleset" "terraform_managed_resource_febee8292d4b4e80817b41
     expression  = "true"
   }]
 }
+
+resource "cloudflare_managed_transforms" "terraform_managed_resource_c1012733de4b7c6521d7601b1a219e05_0" {
+  zone_id                 = var.zone_id
+  managed_request_headers = []
+  managed_response_headers = [{
+    enabled = true
+    id      = "add_security_headers"
+  }]
+}
