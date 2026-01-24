@@ -95,3 +95,9 @@ resource "cloudflare_managed_transforms" "terraform_managed_resource_c1012733de4
     id      = "add_security_headers"
   }]
 }
+
+resource "cloudflare_zone_setting" "http3" {
+  zone_id    = var.zone_id
+  setting_id = "http3"
+  value      = "on"
+}
