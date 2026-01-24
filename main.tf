@@ -81,11 +81,8 @@ resource "cloudflare_ruleset" "terraform_managed_resource_febee8292d4b4e80817b41
     action = "set_cache_settings"
     action_parameters = {
       cache = true
-      edge_ttl = {
-        mode = "respect_origin"
-      }
     }
     description = "Default Caching"
-    expression  = "(not any(http.request.headers[\"accept\"][*] contains \"text/x-component\"))"
+    expression  = "true"
   }]
 }
