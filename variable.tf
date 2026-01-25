@@ -30,3 +30,8 @@ variable "app_cname" {
   description = "Application required CNAME"
   type        = string
 }
+
+variable "bucket_name" {
+  description = "Bucket name"
+  type        = string
+}

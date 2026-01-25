@@ -125,3 +125,9 @@ resource "cloudflare_zone_setting" "http3" {
   setting_id = "http3"
   value      = "on"
 }
+
+resource "cloudflare_r2_bucket" "me_www" {
+  account_id    = var.account_id
+  name          = var.bucket_name
+  storage_class = "Standard"
+}
