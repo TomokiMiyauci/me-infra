@@ -131,3 +131,12 @@ resource "cloudflare_r2_bucket" "me_www" {
   name          = var.bucket_name
   storage_class = "Standard"
 }
+
+resource "cloudflare_r2_custom_domain" "r2_custom_domain" {
+  account_id  = var.account_id
+  enabled     = true
+  zone_id     = var.zone_id
+  bucket_name = cloudflare_r2_bucket.me_www.name
+  domain      = var.domain
+  min_tls     = "1.0"
+}
