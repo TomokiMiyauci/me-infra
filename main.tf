@@ -1,7 +1,7 @@
 provider "cloudflare" {
 }
 
-resource "cloudflare_dns_record" "terraform_managed_resource_886c472d3f79b6146ef489cf29bb1b53_0" {
+resource "cloudflare_dns_record" "terraform_managed_resource_762cb682fd712fdd05e02e2f2d20390b_0" {
   content  = var.app_ipv4
   name     = "@"
   proxied  = true
@@ -12,7 +12,7 @@ resource "cloudflare_dns_record" "terraform_managed_resource_886c472d3f79b6146ef
   settings = {}
 }
 
-resource "cloudflare_dns_record" "terraform_managed_resource_e0019dfa9f829e4f486a996705f66e16_1" {
+resource "cloudflare_dns_record" "terraform_managed_resource_b4961193b72ee94772733dc771dc846d_1" {
   content  = var.app_ipv6
   name     = "@"
   proxied  = true
@@ -130,13 +130,4 @@ resource "cloudflare_r2_bucket" "me_www" {
   account_id    = var.account_id
   name          = var.bucket_name
   storage_class = "Standard"
-}
-
-resource "cloudflare_r2_custom_domain" "r2_custom_domain" {
-  account_id  = var.account_id
-  enabled     = true
-  zone_id     = var.zone_id
-  bucket_name = cloudflare_r2_bucket.me_www.name
-  domain      = var.domain
-  min_tls     = "1.0"
 }
