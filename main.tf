@@ -140,3 +140,26 @@ resource "cloudflare_r2_custom_domain" "r2_custom_domain" {
   zone_id     = var.zone_id
   min_tls     = "1.0"
 }
+
+resource "cloudflare_cloud_connector_rules" "cloud_connector_rules" {
+  zone_id = var.zone_id
+
+  rules = [
+    {
+      provider    = "cloudflare_r2"
+      description = "Route ads.txt"
+      expression  = "(http.request.uri.path eq \"/ads.txt\")"
+      parameters = {
+        host = "static.${var.domain}"
+      }
+    },
+    {
+      provider    = "cloudflare_r2"
+      description = "Route robots.txt"
+      expression  = "(http.request.uri.path eq \"/robots.txt\")"
+      parameters = {
+        host = "static.${var.domain}"
+      }
+    }
+  ]
+}
