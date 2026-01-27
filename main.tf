@@ -152,6 +152,7 @@ resource "cloudflare_cloud_connector_rules" "cloud_connector_rules" {
       parameters = {
         host = "static.${var.domain}"
       }
+      enabled = true
     },
     {
       provider    = "cloudflare_r2"
@@ -160,6 +161,7 @@ resource "cloudflare_cloud_connector_rules" "cloud_connector_rules" {
       parameters = {
         host = "static.${var.domain}"
       }
+      enabled = true
     }
   ]
 }
