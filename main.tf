@@ -171,18 +171,24 @@ resource "cloudflare_list" "bulk_redirect_list" {
   name        = "bulk_redirect_list"
   description = "Redirect list for default language path"
   kind        = "redirect"
+  items = [
+    {
+      redirect = {
+        target_url  = "https://miyauchi.dev/test"
+        source_url  = "https://miyauchi.dev"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        target_url  = "https://miyauchi.dev/test2"
+        source_url  = "https://miyauchi.dev"
+        status_code = 301
+      }
+    }
+  ]
 }
 
-# resource "cloudflare_list_item" "bulk_redirect_list_item" {
-#   account_id = var.account_id
-#   list_id    = cloudflare_list.bulk_redirect_list.id
-
-#   redirect = {
-#     source_url  = "https://miyauchi.dev/test"
-#     target_url  = "https://miyauchi.dev"
-#     status_code = 301
-#   }
-# }
 
 resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
   account_id  = var.account_id
