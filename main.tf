@@ -56,20 +56,36 @@ resource "cloudflare_ruleset" "terraform_managed_resource_8aace1f833de4e62bc43a6
   name    = "default"
   phase   = "http_request_dynamic_redirect"
   zone_id = var.zone_id
-  rules = [{
-    description = "Redirect www to apex"
-    expression  = "(http.request.full_uri wildcard \"https://www.*\")"
-    action      = "redirect"
-    action_parameters = {
-      from_value = {
-        status_code = 301
-        target_url = {
-          expression = "wildcard_replace(http.request.full_uri, \"https://www.*\", \"https://$${1}\")"
+  rules = [
+    {
+      description = "Redirect www to apex"
+      expression  = "(http.request.full_uri wildcard \"https://www.*\")"
+      action      = "redirect"
+      action_parameters = {
+        from_value = {
+          status_code = 301
+          target_url = {
+            expression = "wildcard_replace(http.request.full_uri, \"https://www.*\", \"https://$${1}\")"
+          }
+          preserve_query_string = true
         }
-        preserve_query_string = true
       }
-    }
-  }]
+    },
+    {
+      description = "Redirect root to en"
+      expression  = "(http.request.uri.path eq \"/\")"
+      action      = "redirect"
+      action_parameters = {
+        from_value = {
+          status_code = 301
+          target_url = {
+            expression = "/en"
+          }
+          preserve_query_string = true
+        }
+      }
+    },
+  ]
 }
 
 resource "cloudflare_ruleset" "terraform_managed_resource_febee8292d4b4e80817b41c0d44d9a0f_0" {
