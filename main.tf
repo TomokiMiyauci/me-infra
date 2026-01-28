@@ -174,18 +174,200 @@ resource "cloudflare_list" "bulk_redirect_list" {
   items = [
     {
       redirect = {
-        source_url  = "https://miyauchi.dev/test"
-        target_url  = "https://miyauchi.dev"
+        source_url  = "https://miyauchi.dev/posts/deno-lambda-cdk"
+        target_url  = "https://miyauchi.dev/en/posts/deno-lambda-cdk"
         status_code = 301
       }
     },
     {
       redirect = {
-        source_url  = "https://miyauchi.dev/test2"
-        target_url  = "https://miyauchi.dev"
+        source_url  = "https://miyauchi.dev/posts/module-from-string"
+        target_url  = "https://miyauchi.dev/en/posts/module-from-string"
         status_code = 301
       }
-    }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/import-assertions-json-modules"
+        target_url  = "https://miyauchi.dev/en/posts/import-assertions-json-modules"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/dts-deno-module"
+        target_url  = "https://miyauchi.dev/en/posts/dts-deno-module"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/typescript-literal-hack"
+        target_url  = "https://miyauchi.dev/en/posts/typescript-literal-hack"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/lib-vite-tailwindcss"
+        target_url  = "https://miyauchi.dev/en/posts/lib-vite-tailwindcss"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/react-lazy-intersection"
+        target_url  = "https://miyauchi.dev/en/posts/react-lazy-intersection"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/fcm-push-message"
+        target_url  = "https://miyauchi.dev/en/posts/fcm-push-message"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/firebase-authentication-service-worker"
+        target_url  = "https://miyauchi.dev/en/posts/firebase-authentication-service-worker"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/cloud-functions-online-test"
+        target_url  = "https://miyauchi.dev/en/posts/cloud-functions-online-test"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/bitly-short-url"
+        target_url  = "https://miyauchi.dev/en/posts/bitly-short-url"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/firebase-bundle-size"
+        target_url  = "https://miyauchi.dev/en/posts/firebase-bundle-size"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/tweet-typescript"
+        target_url  = "https://miyauchi.dev/en/posts/tweet-typescript"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/gatsby-typescript"
+        target_url  = "https://miyauchi.dev/en/posts/gatsby-typescript"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/storybook-vite"
+        target_url  = "https://miyauchi.dev/en/posts/storybook-vite"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/exclusive-property"
+        target_url  = "https://miyauchi.dev/en/posts/exclusive-property"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/comment-system"
+        target_url  = "https://miyauchi.dev/en/posts/comment-system"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/typesafe-array-element"
+        target_url  = "https://miyauchi.dev/en/posts/typesafe-array-element"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/fetch-abort"
+        target_url  = "https://miyauchi.dev/en/posts/fetch-abort"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/jest-table-driven-tests"
+        target_url  = "https://miyauchi.dev/en/posts/jest-table-driven-tests"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/speeding-up-jest"
+        target_url  = "https://miyauchi.dev/en/posts/speeding-up-jest"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/vite-vue3-typescript"
+        target_url  = "https://miyauchi.dev/en/posts/vite-vue3-typescript"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/vite-vue3-tailwindcss"
+        target_url  = "https://miyauchi.dev/en/posts/vite-vue3-tailwindcss"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/vite-preact-typescript"
+        target_url  = "https://miyauchi.dev/en/posts/vite-preact-typescript"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/typescript-package-release"
+        target_url  = "https://miyauchi.dev/en/posts/typescript-package-release"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/typescript-conditional-types"
+        target_url  = "https://miyauchi.dev/en/posts/typescript-conditional-types"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/start-vitepress"
+        target_url  = "https://miyauchi.dev/en/posts/start-vitepress"
+        status_code = 301
+      }
+    },
+    {
+      redirect = {
+        source_url  = "https://miyauchi.dev/posts/file-dialog"
+        target_url  = "https://miyauchi.dev/en/posts/file-dialog"
+        status_code = 301
+      }
+    },
   ]
 }
 
