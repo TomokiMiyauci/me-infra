@@ -173,16 +173,16 @@ resource "cloudflare_list" "bulk_redirect_list" {
   kind        = "redirect"
 }
 
-resource "cloudflare_list_item" "bulk_redirect_list_item" {
-  account_id = var.account_id
-  list_id    = cloudflare_list.bulk_redirect_list.id
+# resource "cloudflare_list_item" "bulk_redirect_list_item" {
+#   account_id = var.account_id
+#   list_id    = cloudflare_list.bulk_redirect_list.id
 
-  redirect = {
-    source_url  = "https://miyauchi.dev/test"
-    target_url  = "https://miyauchi.dev"
-    status_code = 301
-  }
-}
+#   redirect = {
+#     source_url  = "https://miyauchi.dev/test"
+#     target_url  = "https://miyauchi.dev"
+#     status_code = 301
+#   }
+# }
 
 resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
   account_id  = var.account_id
@@ -202,8 +202,4 @@ resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
     expression = "http.request.full_uri in ${"$"}${cloudflare_list.bulk_redirect_list.name}"
     enabled    = true
   }]
-
-  depends_on = [
-    cloudflare_list_item.bulk_redirect_list_item
-  ]
 }
