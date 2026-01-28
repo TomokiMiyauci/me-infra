@@ -79,7 +79,7 @@ resource "cloudflare_ruleset" "terraform_managed_resource_8aace1f833de4e62bc43a6
         from_value = {
           status_code = 301
           target_url = {
-            expression = "/en"
+            value = "/en"
           }
           preserve_query_string = true
         }
