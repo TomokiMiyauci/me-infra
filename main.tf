@@ -407,3 +407,24 @@ resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
     enabled    = true
   }]
 }
+
+resource "cloudflare_worker" "app_worker" {
+  account_id = var.account_id
+  name       = "me-production"
+  logpush    = false
+  observability = {
+    enabled            = true
+    head_sampling_rate = 1
+    logs = {
+      enabled            = true
+      head_sampling_rate = 1
+      invocation_logs    = true
+    }
+  }
+  subdomain = {
+    enabled          = true
+    previews_enabled = false
+  }
+  tags           = []
+  tail_consumers = []
+}
