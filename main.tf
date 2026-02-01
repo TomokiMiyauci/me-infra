@@ -400,4 +400,7 @@ resource "cloudflare_dns_record" "dns_record" {
   type    = "CNAME"
   content = "origin.${var.domain}"
   proxied = true
+  settings = {
+    flatten_cname = true
+  }
 }
