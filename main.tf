@@ -385,22 +385,10 @@ resource "cloudflare_worker" "app_worker" {
   tail_consumers = []
 }
 
-resource "cloudflare_workers_custom_domain" "custom_domain" {
+resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
   account_id  = var.account_id
-  hostname    = "origin.${var.domain}"
+  hostname    = var.domain
   service     = "me-production"
   zone_id     = var.zone_id
   environment = "production"
-}
-
-resource "cloudflare_dns_record" "dns_record" {
-  zone_id = var.zone_id
-  name    = "@"
-  ttl     = 300
-  type    = "CNAME"
-  content = "origin.${var.domain}"
-  proxied = false
-  settings = {
-    flatten_cname = true
-  }
 }
