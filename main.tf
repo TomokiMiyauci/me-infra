@@ -396,7 +396,7 @@ resource "cloudflare_workers_custom_domain" "custom_domain" {
 resource "cloudflare_dns_record" "dns_record" {
   zone_id = var.zone_id
   name    = "@"
-  ttl     = 300
+  ttl     = 1
   type    = "CNAME"
   content = "origin.${var.domain}"
   proxied = true
