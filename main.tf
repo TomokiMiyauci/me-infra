@@ -1,50 +1,6 @@
 provider "cloudflare" {
 }
 
-resource "cloudflare_dns_record" "terraform_managed_resource_762cb682fd712fdd05e02e2f2d20390b_0" {
-  content  = var.app_ipv4
-  name     = "@"
-  proxied  = true
-  tags     = []
-  ttl      = 1
-  type     = "A"
-  zone_id  = var.zone_id
-  settings = {}
-}
-
-resource "cloudflare_dns_record" "terraform_managed_resource_b4961193b72ee94772733dc771dc846d_1" {
-  content  = var.app_ipv6
-  name     = "@"
-  proxied  = true
-  tags     = []
-  ttl      = 1
-  type     = "AAAA"
-  zone_id  = var.zone_id
-  settings = {}
-}
-
-resource "cloudflare_dns_record" "terraform_managed_resource_62ffa70f6f924bb6ea2f2d35edeb5826_2" {
-  content = var.app_cname
-  name    = "_acme-challenge.${var.domain}"
-  proxied = true
-  tags    = []
-  ttl     = 1
-  type    = "CNAME"
-  zone_id = var.zone_id
-  settings = {
-    flatten_cname = false
-  }
-}
-
-resource "cloudflare_dns_record" "www" {
-  content = var.app_ipv4
-  name    = "www"
-  proxied = true
-  zone_id = var.zone_id
-  ttl     = 1
-  type    = "A"
-}
-
 resource "cloudflare_url_normalization_settings" "terraform_managed_resource_c1012733de4b7c6521d7601b1a219e05_0" {
   scope   = "both"
   type    = "cloudflare"
@@ -427,4 +383,12 @@ resource "cloudflare_worker" "app_worker" {
   }
   tags           = []
   tail_consumers = []
+}
+
+resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
+  account_id  = var.account_id
+  hostname    = var.domain
+  service     = "me-production"
+  zone_id     = var.zone_id
+  environment = "production"
 }
