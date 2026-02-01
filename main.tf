@@ -385,18 +385,10 @@ resource "cloudflare_worker" "app_worker" {
   tail_consumers = []
 }
 
-resource "cloudflare_workers_route" "example_workers_route" {
-  zone_id = var.zone_id
-  pattern = "${var.domain}/*"
-  script  = "me-production"
-}
-
-resource "cloudflare_dns_record" "dns_record" {
-  zone_id = var.zone_id
-  name    = "@"
-  ttl     = 1
-  type    = "A"
-  comment = "Dummy record for cloudflare workers route"
-  content = "192.0.2.1"
-  proxied = true
+resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
+  account_id  = var.account_id
+  hostname    = var.domain
+  service     = "me-production"
+  zone_id     = var.zone_id
+  environment = "production"
 }
