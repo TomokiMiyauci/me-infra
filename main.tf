@@ -385,8 +385,10 @@ resource "cloudflare_worker" "app_worker" {
   tail_consumers = []
 }
 
-resource "cloudflare_workers_route" "workers_route" {
-  zone_id = var.zone_id
-  pattern = "${var.domain}/*"
-  script  = "me-production"
+resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
+  account_id  = var.account_id
+  hostname    = var.domain
+  service     = "me-production"
+  zone_id     = var.zone_id
+  environment = "production"
 }
