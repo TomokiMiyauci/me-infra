@@ -141,7 +141,7 @@ locals {
 
 resource "cloudflare_list" "bulk_redirect_list" {
   account_id  = var.account_id
-  name        = "bulk_redirect_list"
+  name        = "bulk_redirect_list-${var.env}"
   description = "Redirect list for default language path"
   kind        = "redirect"
   items = [
@@ -157,7 +157,7 @@ resource "cloudflare_list" "bulk_redirect_list" {
 
 resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
   account_id  = var.account_id
-  name        = "bulk_redirect_ruleset"
+  name        = "bulk_redirect_ruleset-${var.env}"
   description = "Bulk redirect ruleset"
   kind        = "root"
   phase       = "http_request_redirect"
