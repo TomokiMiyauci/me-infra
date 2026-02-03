@@ -159,7 +159,7 @@ resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
   account_id  = var.account_id
   name        = "bulk_redirect_ruleset_${var.env}"
   description = "Bulk redirect ruleset"
-  kind        = "root"
+  kind        = "zone"
   phase       = "http_request_redirect"
 
   rules = [{
