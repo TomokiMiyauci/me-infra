@@ -17,7 +17,7 @@ resource "cloudflare_r2_custom_domain" "r2_custom_domain" {
 }
 
 locals {
-  origin       = "https://miyauchi.dev"
+  origin       = "https://${var.domain}"
   service_name = "me"
   redirects = [
     {
