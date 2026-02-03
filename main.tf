@@ -17,8 +17,8 @@ resource "cloudflare_r2_custom_domain" "r2_custom_domain" {
 }
 
 locals {
-  origin = "https://miyauchi.dev"
-
+  origin       = "https://miyauchi.dev"
+  service_name = "me"
   redirects = [
     {
       source_path = "/deno-lambda-cdk"
@@ -177,7 +177,7 @@ resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
 
 resource "cloudflare_worker" "app_worker" {
   account_id = var.account_id
-  name       = "me-production"
+  name       = "${local.service_name}-${var.env}"
   logpush    = false
   observability = {
     enabled            = true
@@ -199,7 +199,7 @@ resource "cloudflare_worker" "app_worker" {
 resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
   account_id  = var.account_id
   hostname    = var.domain
-  service     = "me-production"
+  service     = "${local.service_name}-${var.env}"
   zone_id     = var.zone_id
   environment = "production"
 }
