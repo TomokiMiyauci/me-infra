@@ -245,7 +245,7 @@ resource "cloudflare_list" "bulk_redirect_list" {
     },
     {
       redirect = {
-        source_url  = "https://miyauchi.dev"
+        source_url  = "https://miyauchi.dev/"
         target_url  = "https://miyauchi.dev/en"
         status_code = 301
       }
