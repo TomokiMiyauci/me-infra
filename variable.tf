@@ -15,22 +15,6 @@ variable "domain" {
   type        = string
 }
 
-variable "app_ipv4" {
-  description = "Application IPv4"
-  type        = string
-}
-
-variable "app_ipv6" {
-  description = "Application IPv6"
-  type        = string
-
-}
-
-variable "app_cname" {
-  description = "Application required CNAME"
-  type        = string
-}
-
 variable "bucket_name" {
   description = "Bucket name"
   type        = string
