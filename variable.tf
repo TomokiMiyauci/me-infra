@@ -31,7 +31,6 @@ variable "dns_records" {
     name    = string
     type    = string
     content = string
-    ttl     = number
     proxied = bool
   }))
 }
