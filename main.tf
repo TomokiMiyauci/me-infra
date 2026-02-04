@@ -1,6 +1,17 @@
 provider "cloudflare" {
 }
 
+resource "cloudflare_dns_record" "this" {
+  for_each = var.dns_records
+
+  zone_id = var.zone_id
+  name    = each.value.name
+  type    = each.value.type
+  content = each.value.content
+  ttl     = each.value.ttl
+  proxied = each.value.proxied
+}
+
 resource "cloudflare_r2_bucket" "me_www" {
   account_id    = var.account_id
   name          = var.bucket_name
@@ -154,4 +165,3 @@ resource "cloudflare_list" "bulk_redirect_list" {
     }
   ]
 }
-

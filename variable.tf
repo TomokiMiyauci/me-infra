@@ -24,3 +24,14 @@ variable "env" {
   description = "Environment name"
   type        = string
 }
+
+variable "dns_records" {
+  description = "DNS records"
+  type = map(object({
+    name    = string
+    type    = string
+    content = string
+    ttl     = number
+    proxied = bool
+  }))
+}
