@@ -174,32 +174,3 @@ resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
     enabled    = true
   }]
 }
-
-resource "cloudflare_worker" "app_worker" {
-  account_id = var.account_id
-  name       = "${local.service_name}-${var.env}"
-  logpush    = false
-  observability = {
-    enabled            = true
-    head_sampling_rate = 1
-    logs = {
-      enabled            = true
-      head_sampling_rate = 1
-      invocation_logs    = true
-    }
-  }
-  subdomain = {
-    enabled          = true
-    previews_enabled = false
-  }
-  tags           = []
-  tail_consumers = []
-}
-
-resource "cloudflare_workers_custom_domain" "workers_custom_domain" {
-  account_id  = var.account_id
-  hostname    = var.domain
-  service     = "${local.service_name}-${var.env}"
-  zone_id     = var.zone_id
-  environment = "production"
-}
