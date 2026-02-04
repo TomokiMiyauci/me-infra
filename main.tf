@@ -155,22 +155,3 @@ resource "cloudflare_list" "bulk_redirect_list" {
   ]
 }
 
-resource "cloudflare_ruleset" "bulk_root_redirect_to_id" {
-  account_id  = var.account_id
-  name        = "bulk_redirect_ruleset_${var.env}"
-  description = "Bulk redirect ruleset"
-  kind        = "zone"
-  phase       = "http_request_redirect"
-
-  rules = [{
-    action = "redirect"
-    action_parameters = {
-      from_list = {
-        name = cloudflare_list.bulk_redirect_list.name
-        key  = "http.request.full_uri"
-      }
-    }
-    expression = "http.request.full_uri in ${"$"}${cloudflare_list.bulk_redirect_list.name}"
-    enabled    = true
-  }]
-}
