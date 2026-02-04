@@ -8,7 +8,7 @@ resource "cloudflare_dns_record" "this" {
   name    = each.value.name
   type    = each.value.type
   content = each.value.content
-  ttl     = each.value.ttl
+  ttl     = 1
   proxied = each.value.proxied
 }
 
